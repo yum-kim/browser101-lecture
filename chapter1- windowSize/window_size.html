@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tag{
+            display: inline-block;
+            background-color: thistle;
+        }
+    </style>
+</head>
+<body>
+    <!-- 윈도우 사이즈가 변화될 때마다 사이즈 업데이트 시키기 -->
+    <div class="tag"></div>
+    <script>
+        // window.screen
+        //1. window.screen은 모니터 해상도, 즉 브라우저 바깥에 있는 아이들까지 모두 합한 모니터 사이즈.
+
+        // window.outerWidth
+        // window.outerHeight
+        //2. 브라우저 url, 탭을 포함한 전체적인 브라우저의 사이즈
+
+        // window.innerWidth
+        // window.innerHeight
+        //3. 웹페이지/ 스크롤바가 있다면 스크롤바가 표기되는 모든 것을 합한 페이지가 표기되는 부분 전체
+
+        // documentElement.clientWidth
+        // documentElement.clientHeight
+        //4. 문서자체를 의미. 전체적인 페이지긴한데 만약 수직인 스크롤바가 있다면 스크롤바를 제외한 영역 사이즈
+
+        const tag = document.querySelector(".tag");
+
+        updateTag();
+        window.addEventListener("resize", updateTag);
+
+        function updateTag() {
+            tag.innerHTML = `
+                window.screen : ${window.screen.width}, ${window.screen.height} <br>
+                window.outer : ${window.outerWidth}, ${window.outerHeight} <br>
+                window.inner : ${window.innerWidth}, ${window.innerHeight} <br>
+                documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}
+            `
+        }
+    </script>
+</body>
+</html>
