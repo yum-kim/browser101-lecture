@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window load</title>
+    <script src="loadTest.js" defer></script> <!-- 1번 출력 -->
+    <!-- defer은 html이 Parsing 완료된 다음에, DOMContentLoaded 출력 이전에 호출됨 -->
+
+</head>
+<body>
+    <script>
+        // DOMContentLoaded은 only document만 완료되면 됨 (2번 출력)
+        window.addEventListener("DOMContentLoaded", () => {
+            console.log('DOMContentLoaded');
+        });
+
+        //load는 페이지에서 쓰여지는 모든 소스가 받아진 다음. after resources(css, images, fonts.. 모두 완료되어야 함) (3번 출력)
+        window.addEventListener("load", () => {
+            console.log('load');
+        });
+
+
+        //반대로 아래와 같은 것도 있음!
+        //before unload
+        window.addEventListener("beforeunload", () => {
+            console.log('beforeunload');
+        });
+
+        //resource is being unloaded, 브라우저에서 사용자가 나가기 전에
+        window.addEventListener("unload", () => {
+            console.log('unload');
+        });
+    </script>
+</body>
+</html>
