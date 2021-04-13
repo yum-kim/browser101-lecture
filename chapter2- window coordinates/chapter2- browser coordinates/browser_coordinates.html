@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브라우저 coordinates(좌표)</title>
+    <style>
+        div{width: 200px; height: 200px; background-color: #333; border: 1px solid #fff;}
+        .targetDiv{background-color: red;}
+    </style>
+</head>
+<body>
+    <p>스크롤해서 박스를 클릭 후 콘솔 확인!</p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="targetDiv"></div>
+    <div></div>
+
+    <script>
+    //마우스이벤트 API 중
+    // * Client X,Y vs Page X,Y의 차이점
+
+    //1) Client X,Y
+    //이벤트에는 Client X,Y가 들어있는데, 사용자가 보는 페이지에 상관없이 브라우저 윈도우 창에서 x,y가 얼마나 떨어져 있는지 전달
+
+    //2) Page X,Y
+    //Client X,Y와 반대로 페이지 자체에서(문서의 제일 시작점부터) 떨어져있는 X,Y를 의미
+    
+    var target = document.querySelector(".targetDiv");
+
+    target.addEventListener("click", (e) => {
+        var rect = target.getBoundingClientRect();
+
+        console.log("e.clientX, e.clientY");
+        console.log(`clientX,Y: ${e.clientX}, ${e.clientY}`);
+        console.log("e.pageX, e.pageY");
+        console.log(e.pageX, e.pageY);
+
+        console.log(rect)
+    });
+
+    </script>
+</body>
+</html>
