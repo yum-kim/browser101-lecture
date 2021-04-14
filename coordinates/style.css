@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+html, body {
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.moveBox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(20px, 20px);
+    color: #fff;
+    display: inline-block;
+}
+
+.lineX {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+}
+
+.lineY {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: #fff;
+}
+
+img {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
